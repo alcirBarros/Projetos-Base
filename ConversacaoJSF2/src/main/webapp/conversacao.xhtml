@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- 
+Página para teste do escopo personalizado "conversacao", criado usando JSF 2
+
+Autor: Gilliard Santos Cordeiro (http://gilliard.eti.br)
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+<h:head>
+    <title>Teste de Conversação</title>
+</h:head>
+<h:body>
+
+	<!-- componente do jsf 2 que além de incluir o arquivo js, possui o atributo target, me permitindo
+			dizer onde eu quero que esse recurso fique dentro do meu html. Nesse caso, mesmo eu colocando
+			o componente dentro do body, defino que ele deve sair dentro do head. Muito útil quando usamos
+			templates e o head não fica nas nossa páginas. -->
+    <h:outputScript name="jsf.js" library="javax.faces" target="head"/>
+
+	<h:form id="formTeste">
+	
+		Esta data deve ficar fixa: <h:outputText id="outputData" value="#{testeBean.dataDeHoje}"/>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+		Data atualizada via ajax: <h:outputText id="output2" value="#{testeBean.texto}"/>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+		Contador atualizado via ajax e mantido com a conversação: <h:outputText id="output3" value="#{testeBean.contador}"/>
+		
+		<br/>
+		<br/>
+		<br/>
+	
+		<h:commandButton action="#{testeBean.incrementarContador}" value="Incrementar Contador">
+			<f:ajax render="output2 output3"/>
+		</h:commandButton>
+		<h:commandButton action="#{testeBean.iniciarConversacao}" value="Iniciar Conversação">
+			<f:ajax render="@none"/>
+		</h:commandButton>
+		<h:commandButton action="#{testeBean.finalizarConversacao}" value="Finalizar Conversação">
+			<f:ajax render="@none"/>
+		</h:commandButton>
+		
+	
+	</h:form>
+
+</h:body>
+</f:view>
+</html>
