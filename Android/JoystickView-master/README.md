@@ -119,5 +119,5 @@ This is an implementation of a custom android view that works like a Joystick, t
 [![Creative Commons](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/)
 
 JoystickView by [AJ Alves](https://github.com/alcirBarros) is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
-Based on a work at [github.com](https://github.com/alcirBarros/Projetos-Base/blob/master/Android/JoystickView-master) and page [zerokol.com/2012/03/joystickview-uma-view-customizada-que.html]().
+Based on a work at [github.com](https://github.com/alcirBarros/Projetos-Base/blob/master/Android/JoystickView-master) and page ().
 Permissions beyond the scope of this license may be available at [http://github.com/zerokol](https://github.com/alcirBarros).
