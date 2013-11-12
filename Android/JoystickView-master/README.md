@@ -8,16 +8,6 @@ Projetos-JoyStick
 Android JoystickView is a Custom View that simulates a Joystick for interactive applications for Android, 
 as simple aim is allows access values ​​of angle and power of the virtual Joystck movement.
 
-### Usage
-
-### Quick Usage
-
-1º Step: Download the JAR file at [download](https://github.com/downloads/zerokol/JoystickView/joystickview.jar)
-
-2º Step: Create a folder called "libs" on the root of your project and place the JAR file into.
-
-It's enough to reffer and user the JoystickView library
-
 ### Advanced Usage
 
 If you want to change or upgrade some feature of the library, you should do:
