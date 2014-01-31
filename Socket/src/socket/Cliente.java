@@ -7,6 +7,7 @@ package socket;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Cliente {
     public static void main(String[] args) {
 
         //Declaro o socket cliente  
-        Socket s = null;
+        Socket socket = null;
 
         //Declaro a Stream de saida de dados  
         PrintStream ps = null;
@@ -25,10 +26,16 @@ public class Cliente {
         try {
 
             //Cria o socket com o recurso desejado na porta especificada  
-            s = new Socket("127.0.0.1", 7000);
+            socket = new Socket("127.0.0.1", 7000);
 
             //Cria a Stream de saida de dados  
-            ps = new PrintStream(s.getOutputStream());
+            ps = new PrintStream(socket.getOutputStream());
+
+            Scanner scanner = new Scanner(socket.getInputStream());
+
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
 
             //Imprime uma linha para a stream de saída de dados  
             ps.println("Estou enviando dados para o servidor");
@@ -43,7 +50,7 @@ public class Cliente {
             try {
 
                 //Encerra o socket cliente  
-                s.close();
+                socket.close();
 
             } catch (IOException e) {
             }
