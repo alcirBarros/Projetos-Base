@@ -1,0 +1,22 @@
+What is the output ?
+
+static int i[];
+    public static void main(String... args)
+    {
+        int eye[] = new int[0];
+        try
+        {
+            try{
+                System.out.println(i.length);
+            }
+            finally{
+                i = eye;
+            }
+        }
+        catch (RuntimeException e)
+        {
+            e.printStackTrace();
+            System.err.println(i.length);
+        }
+    }
+NullpointerException 0|NullpointerException NullpointerException|0 0|Compile error|0 NullPointerException|0

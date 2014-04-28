@@ -1,0 +1,5 @@
+This code is valid ?
+
+Long y = 2;
+
+Yes|No|1

@@ -1,0 +1,3 @@
+Which  declaration of the main method is correct ?
+
+public static void main(char args[])|public void main(String args)|public static void main(String args[])|public static main(String args[])|2

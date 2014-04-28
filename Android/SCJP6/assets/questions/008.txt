@@ -1,0 +1,9 @@
+Which, inserted at line 2, is valid and demonstrates encapsulation ?
+
+public class Boat{
+// insert code here
+	public void setGas(int v){
+		gas = v;
+	}
+}
+struct int gas|public int gas|private int gas|protected int gas|2

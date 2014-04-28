@@ -1,0 +1,7 @@
+Given the code which is the result?
+
+public static void main(String[] args){
+	Sistem.out.print("The output is a String");
+}
+
+The output is a String|Sistem.out.print|NullpointerException|Exception|0

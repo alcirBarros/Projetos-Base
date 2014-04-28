@@ -1,0 +1,3 @@
+Which one is true about interfaces.
+
+Methods declared in interfaces are implicitly private.|Variables declared in interfaces are implicitly public, static and final.|1
