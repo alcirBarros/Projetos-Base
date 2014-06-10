@@ -1,4 +1,4 @@
-package com.goe.latlong;
+package com.geo.latlong;
 
 import com.google.code.geocoder.Geocoder;
 import com.google.code.geocoder.GeocoderRequestBuilder;
