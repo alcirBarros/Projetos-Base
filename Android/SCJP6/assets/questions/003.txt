@@ -1,0 +1,5 @@
+Will this code compile successfully?
+
+class Test extends Runnable{}
+
+Yes|No|1

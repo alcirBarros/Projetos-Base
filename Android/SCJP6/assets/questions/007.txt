@@ -1,0 +1,5 @@
+What is output ?
+
+System.out.format("%b", 5);
+
+False|True|Exception|1

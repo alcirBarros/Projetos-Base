@@ -1,0 +1,12 @@
+Will the following class compile?
+
+public class Test
+{
+	private final intx;
+	
+	Text()
+	{
+		x = 3;
+	}
+}
+Yes|No|0

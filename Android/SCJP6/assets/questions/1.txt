@@ -1,0 +1,5 @@
+Is the following code valid?
+
+int[] a = new int[][]{{1}}[0];
+
+Yes|No|1
