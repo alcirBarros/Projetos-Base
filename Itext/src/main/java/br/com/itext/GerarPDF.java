@@ -1,107 +1,92 @@
 package br.com.itext;
 
-import com.itextpdf.text.BaseColor;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GerarPDF {
 
-    public static void main(String[] args) throws Exception {
-        Document doc = null;
-        OutputStream os = null;
+    public static void main(String args[]) {
 
+        SolicitacaoProdutoRelatorio solicitacaoProdutoRelatorio = new SolicitacaoProdutoRelatorio("aaa", "aaa", "bbb");
+        solicitacaoProdutoRelatorio.produtoSolicitadoList.add(new ProdutoSolicitadoRelatorio("aaaa", "aaa", "aaa", "aaa", "aaa"));
+
+        geraRelatorio(solicitacaoProdutoRelatorio);
+    }
+
+    private static void geraRelatorio(SolicitacaoProdutoRelatorio solicitacaoProduto) {
         try {
-            //cria o documento tamanho A4, margens de 2,54cm
-            doc = new Document(PageSize.A4.rotate(), 72, 72, 72, 72);
+            Document documento = new Document(PageSize.A4, 25, 25, 105, 40);
+            OutputStream os = new FileOutputStream("out.pdf");
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            PdfWriter.getInstance(documento, baos);
+            documento.open();
 
-            //cria a stream de saída
-            os = new FileOutputStream("out.pdf");
+            documento.add(ITextUtil.montarTabelaComBordaAlinhamentoCentralFundoCinza(1, new int[]{1}, solicitacaoProduto.NOME_RELATORIO));
 
-            //associa a stream de saída ao
-            PdfWriter.getInstance(doc, os);
+            documento.add(ITextUtil.montarTabelaColuna(new int[]{12, 2}, "UNIDADE DE SAÚDE:" + " " + solicitacaoProduto.unidadeSaude, "MÊS:" + " " + "JANEIRO/14"));
+            documento.add(ITextUtil.montarTabelaColuna(new int[]{12, 2}, "PEDIDO ELABORADO POR:" + " " + solicitacaoProduto.pedidoElaboradoPor, "DATA:" + " " + solicitacaoProduto.data));
 
-            //abre o documento
-            doc.open();
-
-            //adiciona o texto ao PDF
-            
-            {
-            PdfPTable tabela = new PdfPTable(4);
-            
-            PdfPCell cell = new PdfPCell();
-            cell.setHorizontalAlignment(Paragraph.ALIGN_CENTER);
-            
-            cell.setPhrase(new Phrase("Teste1"));
-            tabela.addCell(cell);
-            
-            cell.setPhrase(new Phrase("Teste2"));
-            tabela.addCell(cell);
-            
-            cell.setPhrase(new Phrase("Teste3"));
-            tabela.addCell(cell);
-            
-            cell.setPhrase(new Phrase("Teste4"));
-            tabela.addCell(cell);
-            
-            doc.add(tabela);
+            documento.add(ITextUtil.dataTable(new int[]{2, 11, 2, 4, 3}, "CÓDIGO", "PRODUTO", "UNID.", "SALDO ATUAL", "SOLICITADO"));
+            for (ProdutoSolicitadoRelatorio produtoSolicitado : solicitacaoProduto.produtoSolicitadoList) {
+                documento.add(ITextUtil.row(PdfPCell.BOX, new int[]{2, 11, 2, 4, 3}, produtoSolicitado.codigo, produtoSolicitado.descricaoProduto, produtoSolicitado.unidadeMedida, produtoSolicitado.saldoAtual, produtoSolicitado.solicitado));
             }
 
-            PdfPTable tabela = new PdfPTable(3);
-            tabela.setWidthPercentage(100);
-            tabela.setSpacingBefore(1);
-            tabela.setWidths(new int[]{8, 92, 10});
+            documento.close();
 
-            PdfPCell celula = new PdfPCell();
-            celula.setVerticalAlignment(PdfPCell.ALIGN_CENTER);
-            celula.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-            celula.setPhrase(new Phrase("FICHA B - GES"));
-            
-            tabela.addCell(celula);
-            
-            
-            
-            
-            
-            PdfPCell celula2 = new PdfPCell();
-            celula2.setVerticalAlignment(PdfPCell.ALIGN_CENTER);
-            celula2.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-            celula2.setBackgroundColor(BaseColor.GRAY);
-            
-            Phrase phrase = new Phrase();
-            phrase.add("SECRETARIA MUNICIPAL DE SAÚDE ATENÇÃO BÁSICA - SAÚDE DA FAMÍLIA");
-            
-            Font font = new Font();
-            font.setSize(9);
-            
-            phrase.setFont(font);
-            celula2.setPhrase(phrase);
-            tabela.addCell(celula2);
-            
-            PdfPCell celula3 = new PdfPCell();
-            celula3.setPhrase(new Phrase("ANO"));
-            tabela.addCell(celula3);
-            
-            tabela.setSpacingBefore(5);
+            PdfReader reader = new PdfReader(baos.toByteArray());
+            PdfStamper stamper = new PdfStamper(reader, os);
+            ITextUtil.cabecalho(reader.getNumberOfPages(), stamper, "DEPARTAMENTO DE SAUDE DE SÃO JOÃO DA BOA VISTA", "solicitação de produto");
+            ITextUtil.rodape(reader.getNumberOfPages(), stamper, "alci de oliveira barros", "PRONTO SOCORRO MUNICIPAL DR OSCAR P.MARTINS FILHO-SJBV");
+            stamper.close();
+            reader.close();
+            os.close();
 
-
-            doc.add(tabela);
-        } finally {
-            if (doc != null) {
-                //fechamento do documento
-                doc.close();
-            }
-            if (os != null) {
-                //fechamento da stream de saída
-                os.close();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+}
+
+class SolicitacaoProdutoRelatorio {
+
+    public final static String NOME_RELATORIO = "INFORMAÇÕES DA SOLICITAÇÃO";
+
+    public String unidadeSaude;
+    public String pedidoElaboradoPor;
+    public String data;
+
+    public List<ProdutoSolicitadoRelatorio> produtoSolicitadoList;
+
+    public SolicitacaoProdutoRelatorio(String unidadeSaude, String pedidoElaboradoPor, String data) {
+        this.unidadeSaude = unidadeSaude;
+        this.pedidoElaboradoPor = pedidoElaboradoPor;
+        this.data = data;
+        this.produtoSolicitadoList = produtoSolicitadoList = new ArrayList<ProdutoSolicitadoRelatorio>();
+    }
+}
+
+class ProdutoSolicitadoRelatorio {
+
+    public String codigo;
+    public String descricaoProduto;
+    public String unidadeMedida;
+    public String saldoAtual;
+    public String solicitado;
+
+    public ProdutoSolicitadoRelatorio(String codigo, String descricaoProduto, String unidadeMedida, String saldoAtual, String solicitado) {
+        this.codigo = codigo;
+        this.descricaoProduto = descricaoProduto;
+        this.unidadeMedida = unidadeMedida;
+        this.saldoAtual = saldoAtual;
+        this.solicitado = solicitado;
     }
 }
