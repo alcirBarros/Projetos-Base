@@ -1,6 +1,5 @@
 package com.geo.localizacao;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,8 +48,11 @@ public class DistanceMatrixResponse {
     public void setRow(List<Row> row) {
         this.row = row;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return status + "" + row.toString();
+    }
 }
 
 

@@ -19,9 +19,10 @@ public class App {
     HashMap<String, Object> objaa = new HashMap<String, Object>();
 
     public static void main(String[] args) {
-        DistanceMatrixResponse distanceMatrixResponse = new DistanceMatrixResponse();
+//        DistanceMatrixResponse distanceMatrixResponse = new DistanceMatrixResponse();
+        DistanceMatrixResponse calcularDistanciaXML = new App().calcularDistanciaXML("-23.1895584, -45.87689719999999", "-23.1896584, -45.87689719999999");
 
-        new App().calcularDistanciaXML("Brasil Sao Paulo Jacarei Avenida Azenio de Azevedo Chaves 983", "Brasil Sao Paulo Jacarei Rua Oscar Bagatini 242");
+        System.out.println(calcularDistanciaXML);
     }
 
     public DistanceMatrixResponse calcularDistanciaXML(String origins, String destinations) {
