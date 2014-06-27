@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SpaceTip</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="espaco">.</string>
+    <string name="sua_vez">Sua vez</string>
+    <string name="posicione">Posicione suas naves</string>
+    <string name="mire">Mire no seu lado do campo. O tiro será simétrico.</string>
+    <string name="ganhou">Você ganhou</string>
+    <string name="perdeu">Você perdeu</string>
+    <string name="ok">OK</string>
+    <string name="sair">sair</string>
+    <string name="escolha_nome">Escolha um nome</string>
+    <string name="aguarde">Por favor, aguarde</string>
+    <string name="aguardando_adversario">Aguardando adversário</string>
+    <string name="aguardando_jogada_adversario">Aguardando jogada do adversário</string>
+    <string name="aguardando_inicio">Aguardando inicio</string>
+    <string name="voce_venceu">Você venceu a batalha. Deseja jogar novamente?</string>
+    <string name="voce_perdeu">Você foi derrotado. Deseja jogar novamente?</string>
+    <string name="nao_conectar_servidor">Não foi possível conectar ao servidor.</string>
+    <string name="falha_comunicar_servidor">Falha de comunicação com o servidor.</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="adversario_abandonou">Seu Adversário abandonou a partida. Deseja jogar novamente?</string>
+
+</resources>
