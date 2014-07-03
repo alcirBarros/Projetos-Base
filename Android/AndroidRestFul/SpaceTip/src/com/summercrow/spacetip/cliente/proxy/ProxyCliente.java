@@ -15,7 +15,6 @@ public interface ProxyCliente {
 	
 	public void enviarAbandonarJogo(Long idJogador);
 	
-
 	public void desconectar();
 
 }

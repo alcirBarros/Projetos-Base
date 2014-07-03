@@ -37,10 +37,14 @@ public class FrontControllerRest {
         return proxys.remove(idJogador);
     }
     
-    @GET
-    @Produces("application/json")
-    public String keeplive() {
-        return "keeplive";
+    @POST
+    @Path("/keeplive")
+    @Consumes("application/json")
+    public Response keeplive(JoyStickRest joyStickRest) {
+        Long joyStickId = joyStickRest.getJoyStickId();
+        
+        System.out.println(joyStickRest.getAngle()+" "+joyStickRest.getPower()+ " "+ joyStickRest.getDirection());
+        return Response.status(Response.Status.OK).entity(joyStickId.toString()).build();
     }    
 
     @POST
