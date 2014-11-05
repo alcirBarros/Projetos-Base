@@ -1,5 +1,6 @@
-package br.com.itext;
+package br.com.exemplos;
 
+import br.com.itext.ITextUtil;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import com.itextpdf.text.Document;
