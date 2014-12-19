@@ -74,7 +74,7 @@ public class ProxyClienteRest {
 				joyStickRest.setPower(power);
 				enviarReqCliente(joyStickRest, "keeplive");
 				try {
-					Thread.sleep(400);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

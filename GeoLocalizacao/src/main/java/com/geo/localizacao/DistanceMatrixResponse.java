@@ -8,13 +8,13 @@ import java.util.List;
  * @author alci
  */
 public class DistanceMatrixResponse {
-    
+
     private String status;
-    
+
     private String origin_address;
 
     private String destination_address;
-    
+
     private List<Row> row = new ArrayList<Row>();
 
     public String getStatus() {
@@ -54,6 +54,3 @@ public class DistanceMatrixResponse {
         return status + "" + row.toString();
     }
 }
-
-
-
