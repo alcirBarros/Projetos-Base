@@ -5,10 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author alcir
- */
 public class UsuarioCarregarTeste {
 
     public static void main(String[] args) {
