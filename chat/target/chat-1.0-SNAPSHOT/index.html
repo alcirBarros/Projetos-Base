@@ -9,6 +9,7 @@
             var endPointURL = "ws://" + window.location.host + contextoWeb + "/echo";
             var websocket = null;
             function connect() {
+                console.log(endPointURL);
                 websocket = new WebSocket(endPointURL);
 
                 websocket.onopen = function(event) {

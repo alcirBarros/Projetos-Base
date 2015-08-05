@@ -1,0 +1,32 @@
+package relatorio;
+
+import com.relatorio.MovimentacaoClienteLaboratorioMesDynamic;
+import com.util.JPAUtilParaTestes;
+import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Map;
+import javax.persistence.EntityManager;
+import org.junit.Before;
+import org.junit.Test;
+
+public class MovimentacaoClienteLaboratorioMesDynamicTest {
+
+    private EntityManager em;
+
+    private MovimentacaoClienteLaboratorioMesDynamic relatorio = new MovimentacaoClienteLaboratorioMesDynamic();
+
+    private static final String[] MOVIMENTACAO = {"1"};
+
+    @Before
+    public void setUp() {
+        em = new JPAUtilParaTestes().getEntityManager();
+        relatorio.setEm(em);
+    }
+
+    @Test
+    public void gerarRelatorio() throws Exception {
+        Map<String, String[]> valores = new HashMap<>();
+        //valores.put("movimentacaoId", MOVIMENTACAO);
+        relatorio.parametro(valores, null).toPdf(new FileOutputStream("//tmp//SALUTE.pdf"));
+    }
+}
