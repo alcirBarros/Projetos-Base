@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Laboratório 15</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="selecione_o_intervalo_para_a_notificacao">Selecione o intervalo para a Notificação</string>
+    <string name="disparar">Disparar</string>
+    <string name="title_activity_segunda">SegundaActivity</string>
+
+</resources>

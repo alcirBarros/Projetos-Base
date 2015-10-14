@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    
+    <TextView 
+        android:id="@+id/descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    
+    <Button 
+        android:id="@+id/concluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/concluir"/>
+    
+    <Button 
+        android:id="@+id/excluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/excluir"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="#ff0000"/>
+
+</LinearLayout>

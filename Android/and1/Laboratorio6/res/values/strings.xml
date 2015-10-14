@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Laboratório 6</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="o_que_achou_deste_imovel">O que achou deste imóvel?</string>
+    <string name="agendar_visita">Agendar Visita</string>
+    <string name="nome">Nome</string>
+    <string name="telefone">Telefone</string>
+    <string name="data">Data</string>
+    <string name="horario">Horário</string>
+
+</resources>

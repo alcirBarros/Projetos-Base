@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/minimo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/minimo" />
+
+    <EditText
+        android:id="@+id/maximo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/maximo" />
+
+    <Button
+        android:id="@+id/redefinir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/redefinir" />
+
+    <Button
+        android:id="@+id/gerar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gerar_numero" />
+
+</LinearLayout>

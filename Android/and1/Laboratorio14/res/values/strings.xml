@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Laboratório 14</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="criar">Criar</string>
+    <string name="title_activity_nova_tarefa">NovaTarefaActivity</string>
+    <string name="t_tulo">Título</string>
+    <string name="titulo">Título</string>
+    <string name="descricao">Descrição</string>
+    <string name="salvar">Salvar</string>
+    <string name="title_activity_editar_tarefa">EditarTarefaActivity</string>
+    <string name="concluir">Concluir</string>
+    <string name="excluir">Excluir</string>
+    <string name="exibir_ocultar">Exibir/Ocultar</string>
+
+</resources>

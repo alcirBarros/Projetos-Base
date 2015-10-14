@@ -1,0 +1,7 @@
+INDEX VERSION 1.126+C:\Users\aluno\android\testes\.metadata\.plugins\org.eclipse.jdt.core
+2417490570.index
+4040436753.index
+4103412778.index
+3415599144.index
+259719754.index
+1380008603.index

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Laboratório 2</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="texto_boas_vindas">Bem-vindo a Academia Android</string>
+    <string name="desenvolvido_por_mim">Desenvolvido por mim</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="ok">OK</string>
+    <string name="limpar">Limpar</string>
+    <string name="logo_do_aplicativo">Logo do aplicativo</string>
+
+</resources>

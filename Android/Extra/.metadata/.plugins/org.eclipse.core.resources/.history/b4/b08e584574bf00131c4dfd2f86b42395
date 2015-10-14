@@ -1,0 +1,7 @@
+package br.com.season.exemplos;
+
+public class Conteudo {
+
+	int id;
+	String nome;
+}

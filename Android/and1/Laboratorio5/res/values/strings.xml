@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Laboratório 5</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="e_mail">E-mail</string>
+    <string name="cidade">Cidade</string>
+    
+    <string-array name="estados_array">
+        <item>Acre</item>
+        <item>Alagoas</item>
+        <item>Amazonas</item>
+        <item>Bahia</item>
+        <item>Ceará</item>
+        <item>Distrito Federal</item>
+    </string-array>
+        <string name="masculino">Masculino</string>
+        <string name="feminino">Feminino</string>
+        <string name="sim">Sim</string>
+        <string name="nao">Não</string>
+        <string name="atualizacoes_automaticas">Atualizações automáticas?</string>
+        <string name="aceito_os_termos_da_aplicacao">Aceito os termos da aplicação</string>
+
+</resources>

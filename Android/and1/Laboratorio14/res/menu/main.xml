@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_adicionar"
+        android:icon="@android:drawable/ic_menu_add"
+        android:showAsAction="always"
+        android:title="@string/criar"/>
+    <item
+        android:id="@+id/action_exibir"
+        android:icon="@android:drawable/ic_menu_view"
+        android:showAsAction="always"
+        android:title="@string/exibir_ocultar"/>
+
+</menu>

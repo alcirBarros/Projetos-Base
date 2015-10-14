@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Laboratório 11</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="minimo">Mínimo</string>
+    <string name="maximo">Máximo</string>
+    <string name="redefinir">Redefinir</string>
+    <string name="gerar_numero">Gerar Número</string>
+
+</resources>
