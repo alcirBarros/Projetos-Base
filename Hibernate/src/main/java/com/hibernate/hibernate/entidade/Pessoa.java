@@ -1,35 +1,47 @@
 package com.hibernate.hibernate.entidade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
 
 @Entity
-@Table(name="pss_pessoa")
-public class Pessoa implements Serializable{
-    
+@Table(name = "pss_pessoa")
+@FilterDef(name = "ativo", parameters = {@ParamDef(name = "status", type = "boolean")})
+public class Pessoa implements Serializable {
+
+    private static final long serialVersionUID = -403686655985098117L;
+
     @Id
     @GeneratedValue
-    @Column(name="pss_id", nullable = false)
+    @Column(name = "pss_id", nullable = false)
     private Integer id;
-    
-    @Column(name="pss_nome")
+
+    @Column(name = "pss_nome")
     private String nome;
-    
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="sxo_id", referencedColumnName="sxo_id")
+    @JoinColumn(name = "sxo_id", referencedColumnName = "sxo_id")
     private Sexo sexo;
-    
-    public Pessoa(){
-       sexo = new Sexo();
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, targetEntity = Contato.class)
+    @Filter(name = "ativo", condition = "cnt_ativo = :status")
+    private List<Contato> contatoList = new ArrayList<Contato>();
+
+    public Pessoa() {
+        sexo = new Sexo();
     }
 
     public Integer getId() {
@@ -48,14 +60,20 @@ public class Pessoa implements Serializable{
         this.nome = nome;
     }
 
-   public Sexo getSexo() {
-      return sexo;
-   }
+    public Sexo getSexo() {
+        return sexo;
+    }
 
-   public void setSexo(Sexo sexo) {
-      this.sexo = sexo;
-   }
-    
-    
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
 
+    public List<Contato> getContatoList() {
+        return contatoList;
+    }
+
+    public void setContatoList(List<Contato> contatoList) {
+        this.contatoList = contatoList;
+    }
+    
 }

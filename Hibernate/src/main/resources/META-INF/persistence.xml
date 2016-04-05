@@ -6,10 +6,10 @@
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
       <property name="hibernate.hbm2ddl.auto" value="none"/>
       <!-- none: não fazer nada
-		    	 validate: validar o esquema, não faz alterações para o banco de dados.
-			 update: atualizar o esquema.
-			 create: cria o esquema, destruindo dados anteriores.
-			 create-drop: remover o esquema no final da sessão. -->
+           validate: validar o esquema, não faz alterações para o banco de dados.
+           update: atualizar o esquema.
+           create: cria o esquema, destruindo dados anteriores.
+           create-drop: remover o esquema no final da sessão. -->
 			
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
