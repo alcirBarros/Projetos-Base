@@ -1,4 +1,4 @@
-package com.hibernate.hibernate.entidade;
+package com.hibernate.entidade.whare;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -17,8 +17,8 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name = "cnt_contato")
-//@Filter(name = "ativo", condition = "cnt_ativo = :status")
-//@FilterDef(name = "ativo", parameters = {@ParamDef(name = "status", type = "boolean")})
+@Filter(name = "ativo", condition = "cnt_ativo = :status")
+@FilterDef(name = "ativo", parameters = {@ParamDef(name = "status", type = "boolean")})
 public class Contato implements Serializable {
 
     private static final long serialVersionUID = 2819522057713894983L;

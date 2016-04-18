@@ -1,4 +1,4 @@
-package com.hibernate.hibernate.entidade;
+package com.hibernate.entidade.whare;
 
 import java.io.Serializable;
 import java.util.ArrayList;
