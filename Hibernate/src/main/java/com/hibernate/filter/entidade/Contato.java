@@ -1,4 +1,4 @@
-package com.hibernate.entidade.whare;
+package com.hibernate.filter.entidade;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
-import org.hibernate.annotations.Where;
 
 
 @Entity

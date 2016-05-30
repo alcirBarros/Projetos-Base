@@ -1,10 +1,10 @@
-package com.hibernate.hibernate.teste.fetchtype;
+package com.hibernate.fetchtype;
 
-import com.hibernate.conexao.ConexaoFactory;
-import com.hibernate.entidade.fetchtype.Fornecedor;
-import com.hibernate.entidade.fetchtype.NotaFiscal;
-import com.hibernate.entidade.fetchtype.Produto;
-import com.hibernate.entidade.fetchtype.ProdutoNotaFiscal;
+import com.hibernate.conexao.hibernateDB.ConexaoFactory;
+import com.hibernate.fetchtype.entidade.Fornecedor;
+import com.hibernate.fetchtype.entidade.NotaFiscal;
+import com.hibernate.fetchtype.entidade.Produto;
+import com.hibernate.fetchtype.entidade.ProdutoNotaFiscal;
 
 public class NotaFiscalTest extends ConexaoFactory{
     

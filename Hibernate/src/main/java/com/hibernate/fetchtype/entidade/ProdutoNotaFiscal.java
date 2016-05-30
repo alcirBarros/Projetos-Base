@@ -1,4 +1,4 @@
-package com.hibernate.entidade.fetchtype;
+package com.hibernate.fetchtype.entidade;
 
 import java.io.Serializable;
 import javax.persistence.CascadeType;

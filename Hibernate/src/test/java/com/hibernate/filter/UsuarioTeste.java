@@ -1,8 +1,8 @@
-package com.hibernate.hibernate.teste.whare;
+package com.hibernate.filter;
 
-import com.hibernate.entidade.whare.Contato;
-import com.hibernate.entidade.whare.Pessoa;
-import com.hibernate.entidade.whare.Usuario;
+import com.hibernate.filter.entidade.Contato;
+import com.hibernate.filter.entidade.Pessoa;
+import com.hibernate.filter.entidade.Usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

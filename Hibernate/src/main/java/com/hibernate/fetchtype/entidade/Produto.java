@@ -1,4 +1,4 @@
-package com.hibernate.entidade.fetchtype;
+package com.hibernate.fetchtype.entidade;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -8,20 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "frn_fornecedor")
-public class Fornecedor implements Serializable {
+@Table(name = "pdt_produto")
+public class Produto implements Serializable {
 
-    private static final long serialVersionUID = -7355508055514809681L;
+    private static final long serialVersionUID = 1977877207283205002L;
 
     @Id
     @GeneratedValue
-    @Column(name = "frn_id", nullable = false)
+    @Column(name = "pdt_id", nullable = false)
     private Integer id;
+    
+    @Column(name = "pdt_descricao", unique = true, nullable = false)
+    private String descricao;
 
-    @Column(name = "frn_nome_fantasia", unique = true, nullable = false)
-    private String nomeFantasia;
-
-    public Fornecedor() {
+    public Produto() {
     }
 
     public Integer getId() {
@@ -32,18 +32,18 @@ public class Fornecedor implements Serializable {
         this.id = id;
     }
 
-    public String getNomeFantasia() {
-        return nomeFantasia;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setNomeFantasia(String nomeFantasia) {
-        this.nomeFantasia = nomeFantasia;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + (this.id != null ? this.id.hashCode() : 0);
+        int hash = 7;
+        hash = 83 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -58,10 +58,12 @@ public class Fornecedor implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Fornecedor other = (Fornecedor) obj;
+        final Produto other = (Produto) obj;
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
+
+
 }

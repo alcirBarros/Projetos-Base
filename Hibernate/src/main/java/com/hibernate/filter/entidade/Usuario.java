@@ -1,4 +1,4 @@
-package com.hibernate.entidade.whare;
+package com.hibernate.filter.entidade;
 
 import java.io.Serializable;
 import java.math.BigInteger;
