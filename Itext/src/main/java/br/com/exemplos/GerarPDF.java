@@ -46,7 +46,7 @@ public class GerarPDF {
             PdfReader reader = new PdfReader(baos.toByteArray());
             PdfStamper stamper = new PdfStamper(reader, os);
             ITextUtil.cabecalho(reader.getNumberOfPages(), stamper, "DEPARTAMENTO DE SAUDE DE SÃO JOÃO DA BOA VISTA", "solicitação de produto");
-            ITextUtil.rodape(reader.getNumberOfPages(), stamper, "alci de oliveira barros", "PRONTO SOCORRO MUNICIPAL DR OSCAR P.MARTINS FILHO-SJBV");
+            ITextUtil.rodape(reader.getNumberOfPages(), stamper, "claudemir jose da cruz", "PRONTO SOCORRO MUNICIPAL DR OSCAR P.MARTINS FILHO-SJBV");
             stamper.close();
             reader.close();
             os.close();

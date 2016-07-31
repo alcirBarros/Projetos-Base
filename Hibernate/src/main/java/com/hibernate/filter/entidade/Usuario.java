@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usr_usuario")
+@Table(name = "usr_usuario", catalog = "hibernateDB")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = -1304410802629512301L;

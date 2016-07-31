@@ -1,33 +1,37 @@
 package com.hibernate.fetchtype;
 
-import com.hibernate.conexao.hibernateDB.ConexaoFactory;
-import com.hibernate.fetchtype.entidade.Fornecedor;
-import com.hibernate.fetchtype.entidade.NotaFiscal;
-import com.hibernate.fetchtype.entidade.Produto;
-import com.hibernate.fetchtype.entidade.ProdutoNotaFiscal;
+import com.hibernate.fetchtype.model.Fornecedor;
+import com.hibernate.fetchtype.model.NotaFiscal;
+import com.hibernate.fetchtype.model.Produto;
+import com.hibernate.fetchtype.model.ProdutoNotaFiscal;
+import com.hibernate.fetchtype.service.NotaFiscalService;
 
-public class NotaFiscalTest extends ConexaoFactory{
-    
+public class NotaFiscalTest {
+
+    private static NotaFiscalService notaFiscalService;
+
+    //Injector de dependencias
+    static {
+        notaFiscalService = new NotaFiscalService();
+    }
+
     public static void main(String[] args) {
         try {
-            NotaFiscal notaFiscal = new NotaFiscal();
-            Fornecedor fornecedor = fornecedor();
-            notaFiscal.setFornecedor(fornecedor);
-            
-            ProdutoNotaFiscal produtoNotaFiscal = produtoNotaFiscal();
-            
-            notaFiscal.addProdutoNotaFiscalListener(produtoNotaFiscal);
-            
-            em.getTransaction().begin();
-            em.persist(notaFiscal);
-            em.getTransaction().commit();
-            
+            NotaFiscal geraNotaFiscal = geraNotaFiscal();
+            notaFiscalService.salvar(geraNotaFiscal);
             System.out.println("FIM");
-            
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static NotaFiscal geraNotaFiscal() {
+        NotaFiscal notaFiscal = new NotaFiscal();
+        Fornecedor fornecedor = fornecedor();
+        notaFiscal.setFornecedor(fornecedor);
+        ProdutoNotaFiscal produtoNotaFiscal = produtoNotaFiscal();
+        notaFiscal.addProdutoNotaFiscalListener(produtoNotaFiscal);
+        return notaFiscal;
     }
 
     private static ProdutoNotaFiscal produtoNotaFiscal() {
@@ -43,5 +47,5 @@ public class NotaFiscalTest extends ConexaoFactory{
         fornecedor.setNomeFantasia("AAAAAA");
         return fornecedor;
     }
-    
+
 }

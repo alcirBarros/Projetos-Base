@@ -1,28 +1,29 @@
-package com.hibernate.fetchtype.entidade;
+package com.hibernate.heranca.model.exemplo2;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pdt_produto")
-public class Produto implements Serializable {
+@Table(name = "ins_instituicao", catalog = "hibernateDB")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Instituicao implements Serializable {
 
-    private static final long serialVersionUID = 1977877207283205002L;
+    private static final long serialVersionUID = 3989495708796555321L;
 
     @Id
-    @GeneratedValue
-    @Column(name = "pdt_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ins_id", nullable = false)
     private Integer id;
-    
-    @Column(name = "pdt_descricao", unique = true, nullable = false)
-    private String descricao;
 
-    public Produto() {
-    }
+    @Column(name = "ins_nome_fanta", nullable = false)
+    private String nomeFanta;
 
     public Integer getId() {
         return id;
@@ -32,18 +33,18 @@ public class Produto implements Serializable {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNomeFanta() {
+        return nomeFanta;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNomeFanta(String nomeFanta) {
+        this.nomeFanta = nomeFanta;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 71 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -58,12 +59,10 @@ public class Produto implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Produto other = (Produto) obj;
+        final Instituicao other = (Instituicao) obj;
         if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
-
-
 }

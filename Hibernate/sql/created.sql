@@ -1,0 +1,5 @@
+DROP DATABASE hibernateDB;
+CREATE DATABASE hibernateDB;
+
+DROP DATABASE pessoaDB;
+CREATE DATABASE pessoaDB;

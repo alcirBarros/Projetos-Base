@@ -17,8 +17,8 @@ import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 
-@Entity
-@Table(name = "pss_pessoa")
+@Entity(name = "Pessoa_1")
+@Table(name = "pss_pessoa", catalog = "hibernateDB")
 @FilterDef(name = "ativo", parameters = {@ParamDef(name = "status", type = "boolean")})
 public class Pessoa implements Serializable {
 

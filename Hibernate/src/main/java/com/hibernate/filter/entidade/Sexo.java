@@ -1,5 +1,6 @@
 package com.hibernate.filter.entidade;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,10 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "sxo_sexo")
-public class Sexo {
+@Table(name = "sxo_sexo", catalog = "hibernateDB")
+public class Sexo implements Serializable {
+
+    private static final long serialVersionUID = 2274210870062409057L;
    
    @Id
    @GeneratedValue

@@ -1,4 +1,4 @@
-package com.hibernate.fetchtype.entidade;
+package com.hibernate.fetchtype.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "frn_fornecedor")
+@Table(name = "frn_fornecedor", catalog = "hibernateDB")
 public class Fornecedor implements Serializable {
 
     private static final long serialVersionUID = -7355508055514809681L;

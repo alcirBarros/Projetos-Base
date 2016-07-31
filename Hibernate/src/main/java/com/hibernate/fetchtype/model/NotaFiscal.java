@@ -1,4 +1,4 @@
-package com.hibernate.fetchtype.entidade;
+package com.hibernate.fetchtype.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ntf_nota_fiscal")
+@Table(name = "ntf_nota_fiscal", catalog = "hibernateDB")
 public class NotaFiscal implements Serializable {
 
     private static final long serialVersionUID = -8531358644430282158L;

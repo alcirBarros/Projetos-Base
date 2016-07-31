@@ -6,33 +6,33 @@ import com.sun.jersey.api.client.WebResource;
 
 public class JerseyClientGet {
 
-	public static void main(String[] args) {
-		try {
+    public static void main(String[] args) {
+        try {
 
-			Client client = Client.create();
+            Client client = Client.create();
 
-			WebResource webResource = client
-					.resource("http://localhost:8080/RESTfulExample/rest/json/metallica/get");
+            WebResource webResource = client
+                    .resource("http://localhost:8080/RESTfulExample/rest/json/metallica/get");
 
-			ClientResponse response = webResource.accept("application/json")
-					.get(ClientResponse.class);
+            ClientResponse response = webResource.accept("application/json")
+                    .get(ClientResponse.class);
 
-			if (response.getStatus() != 200) {
-				throw new RuntimeException("Failed : HTTP error code : "
-						+ response.getStatus());
-			}
+            if (response.getStatus() != 200) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + response.getStatus());
+            }
 
-			String output = response.getEntity(String.class);
+            String output = response.getEntity(String.class);
 
-			System.out.println("Output from Server .... \n");
-			System.out.println(output);
+            System.out.println("Output from Server .... \n");
+            System.out.println(output);
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-			e.printStackTrace();
+            e.printStackTrace();
 
-		}
+        }
 
-	}
+    }
 
 }

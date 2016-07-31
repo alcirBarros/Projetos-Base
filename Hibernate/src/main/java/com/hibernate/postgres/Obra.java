@@ -14,6 +14,7 @@ import javax.persistence.Table;
 //@Table(name = "t_obra")
 //@SequenceGenerator(name = "pk_sequence_obra", sequenceName = "t_obra_cd_obra_seq", allocationSize = 1)
 public class Obra implements Serializable {
+    
 
 //    @Id
 //    @Basic(optional = false)
@@ -29,4 +30,7 @@ public class Obra implements Serializable {
 
 //    @OneToOne(mappedBy = "Obra")
 //    private ImagemObra ImagemObra;
+    
+    
 }
+

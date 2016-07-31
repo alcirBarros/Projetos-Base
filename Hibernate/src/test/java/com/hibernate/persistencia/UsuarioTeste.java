@@ -1,6 +1,6 @@
 package com.hibernate.persistencia;
 
-import com.hibernate.persistencia.entidade.Usuario;
+import com.hibernate.filter.entidade.Usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

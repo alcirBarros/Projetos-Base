@@ -1,4 +1,4 @@
-package com.hibernate.fetchtype.entidade;
+package com.hibernate.fetchtype.model;
 
 import java.io.Serializable;
 import javax.persistence.CascadeType;
@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pnf_produto_nota_fiscal")
+@Table(name = "pnf_produto_nota_fiscal", catalog = "hibernateDB")
 public class ProdutoNotaFiscal implements Serializable {
 
     private static final long serialVersionUID = 5668302551280630340L;
