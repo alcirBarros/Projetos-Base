@@ -22,8 +22,4 @@ public class Fabricante extends Instituicao{
     public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
     }
-    
-    
-    
-    
 }

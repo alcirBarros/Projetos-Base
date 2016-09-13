@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class NotaFiscal implements Serializable {
     @Column(name = "ntf_id", nullable = false)
     private Integer id;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "frn_id", referencedColumnName = "frn_id", foreignKey = @ForeignKey(name = "fk_ntf_frn_id"))
     private Fornecedor fornecedor;
     
