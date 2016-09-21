@@ -1,26 +1,32 @@
 package com.list.filter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * http://howtodoinjava.com/java-8/how-to-use-predicate-in-java-8/ http://www.mkyong.com/java8/java-8-streams-filter-examples/
+ * http://howtodoinjava.com/java-8/how-to-use-predicate-in-java-8/
+ * http://www.mkyong.com/java8/java-8-streams-filter-examples/
  * http://www.dreamsyssoft.com/java-8-lambda-tutorial/filter-tutorial.php/
  * http://www.leveluplunch.com/java/examples/remove-filter-null-references-from-collection-list/
  */
 public class FilterLambda {
 
     public static void main(String[] args) {
-        List<Pessoa> pessoaList = new ArrayList<>();
-        pessoaList.add(new Pessoa(121, "Adriana", 12, Sexo.MALE));
-        pessoaList.add(new Pessoa(221, "Julia", 19, Sexo.MALE));
-        pessoaList.add(new Pessoa(131, "Pedro", 31, Sexo.FEMALE));
-        pessoaList.add(new Pessoa(234, "Anita", 44, Sexo.MALE));
-        
+//        List<Pessoa> pessoaList = null;
+//        pessoaList = new ArrayList<>();
+//        pessoaList.add(new Pessoa(121, "Adriana", 12, Sexo.MALE));
+//        pessoaList.add(new Pessoa(221, "Julia", 19, Sexo.MALE));
+//        pessoaList.add(new Pessoa(131, "Pedro", 31, Sexo.FEMALE));
+//        pessoaList.add(new Pessoa(234, "Anita", 44, Sexo.MALE));
+
 //        List<Pessoa> olderUsers = pessoaList.stream().filter(Pessoa.isAdultMale()).collect(Collectors.toList());
 //        System.out.println(olderUsers);
 //
@@ -29,13 +35,28 @@ public class FilterLambda {
 //
 //        List<Pessoa> pessoas = pessoaList.stream().filter(like("Adri").and(like("Adriana"))).collect(Collectors.toList());
 //        System.out.println(pessoas);
+//        
+//       sorted(pessoaList);
 
-        sorted(pessoaList);
+        String[] arrayStringIsNull1 = arrayStringIsNull(null);
+        String[] arrayStringIsNull2 = arrayStringIsNull(new String[]{"", null});
+        String[] arrayStringIsNull3 = arrayStringIsNull(new String[]{null, ""});
+        String[] arrayStringIsNull4 = arrayStringIsNull(new String[]{""});
+        String[] arrayStringIsNull5 = arrayStringIsNull(new String[]{null, null});
+        String[] arrayStringIsNull6 = arrayStringIsNull(new String[]{"", ""});
+        String[] arrayStringIsNull7 = arrayStringIsNull(new String[]{"", "1111"});
+        String[] arrayStringIsNull8 = arrayStringIsNull(new String[]{"4424", "1111"});
+        String[] arrayStringIsNull9 = arrayStringIsNull(new String[]{"gfdg", null});
+
     }
-    
+
+    public static String[] arrayStringIsNull(String[] stringArray) {
+        return Optional.ofNullable(stringArray).flatMap(o -> Optional.of(Arrays.asList(o).stream().filter(p -> p != null && !p.trim().isEmpty()).toArray(String[]::new))).orElse(null);
+    }
+
     public static void sorted(List<Pessoa> pessoaList) {
-        List<Pessoa> pessoas = pessoaList.stream().sorted((x, y) -> x.getNome().compareTo(y.getNome())).collect(Collectors.toList());
-        System.out.println(pessoaList);
+        List<Pessoa> pessoas = Optional.ofNullable(pessoaList).orElseGet(Collections::emptyList).stream().sorted((x, y) -> x.getNome().compareTo(y.getNome())).filter(Objects::nonNull).collect(Collectors.toList());
+        System.out.println(pessoas);
     }
 
     public static void map() {
@@ -45,8 +66,8 @@ public class FilterLambda {
 
     public static void map(List<Pessoa> pessoaList) {
         String s = pessoaList.stream().map(x -> "'" + x + "'").collect(Collectors.joining(", "));
-        
-        List<String> collect = pessoaList.stream() .map(x -> new String(x.getNome())).collect(Collectors.toList());
+
+        List<String> collect = pessoaList.stream().map(x -> new String(x.getNome())).collect(Collectors.toList());
         System.out.println(collect);
         //convert stream to String
 //                .forEach(System.out::println);
