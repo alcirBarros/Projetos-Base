@@ -55,7 +55,7 @@
                 <version>1.3</version>
                 <executions>
                     <execution>
-                        <phase>validate</phase>
+                        <!--<phase>validate</phase>-->
                         <!--<phase>initialize</phase>-->
                         <!--<phase>generate-sources</phase>-->
                         <!--<phase>process-sources</phase>-->

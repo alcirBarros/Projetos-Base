@@ -24,6 +24,7 @@
         <module>Column</module>
         <module>Postgres</module>
         <module>CascadeType</module>
+        <module>ManyToMany</module>
     </modules>
     
     <dependencyManagement>
