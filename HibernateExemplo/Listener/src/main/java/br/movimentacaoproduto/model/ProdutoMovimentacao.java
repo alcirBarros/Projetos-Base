@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @EntityListeners(ProdutoMovimentacaoListener.class)
-@Table(name = "pmv_produto_movimentacao", catalog = "hibernateDB")
+@Table(name = "pmv_produto_movimentacao", schema = "hibernateDB")
 public class ProdutoMovimentacao implements Serializable {
 
     private static final long serialVersionUID = 1303945368078838783L;

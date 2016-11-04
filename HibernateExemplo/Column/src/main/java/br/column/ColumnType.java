@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name = "clm_column", catalog = "hibernateDB")
+@Table(name = "clm_column", catalog = "HibernateDB")
 public class ColumnType implements Serializable {
 
     private static final long serialVersionUID = -1126242111171968609L;

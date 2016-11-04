@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pdt_produto", catalog = "hibernateDB")
+@Table(name = "pdt_produto", schema = "hibernateDB")
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 5946054244653152546L;

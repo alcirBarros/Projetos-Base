@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mpd_movimentacao_produto", catalog = "hibernateDB")
+@Table(name = "mpd_movimentacao_produto", schema = "hibernateDB")
 public class MovimentacaoProduto implements Serializable{
 
     private static final long serialVersionUID = 6587925334462105282L;

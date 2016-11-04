@@ -12,7 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pss_pessoa", catalog = "hibernateDB")
+@Table(name = "pss_pessoa", schema = "hibernateDB")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa implements Serializable {
 

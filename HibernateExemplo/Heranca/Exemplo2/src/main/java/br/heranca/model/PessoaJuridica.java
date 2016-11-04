@@ -7,13 +7,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "psj_pessoa_juridica", catalog = "hibernateDB")
-@PrimaryKeyJoinColumn(name="pss_id")
+@Table(name = "psj_pessoa_juridica",  schema = "hibernateDB")
+@PrimaryKeyJoinColumn(name="pss_id", referencedColumnName = "pss_id")
 public class PessoaJuridica extends Pessoa {
     
     private static final long serialVersionUID = -6172127294759514438L;
     
-    @Column(name = "cnpj", nullable = false)
+    @Column(name = "psj_cnpj", nullable = false)
     private String cnpj;
 
     public String getCnpj() {

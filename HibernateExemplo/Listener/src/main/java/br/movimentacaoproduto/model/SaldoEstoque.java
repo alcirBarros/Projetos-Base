@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ses_saldo_estoque", catalog = "hibernateDB")
+@Table(name = "ses_saldo_estoque", schema = "hibernateDB")
 public class SaldoEstoque implements Serializable {
 
     private static final long serialVersionUID = 3763683487901370452L;
