@@ -17,6 +17,11 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="root" />
+            
+            <!-- envers -->
+            <property name="org.hibernate.envers.track_entities_changed_in_revision" value="true" />
+            <property name="org.hibernate.envers.default_schema" value="hibernateDB_aud" />
+            <property name="org.hibernate.envers.audit_table_suffix" value="_aud" />
         </properties>
         
     </persistence-unit>

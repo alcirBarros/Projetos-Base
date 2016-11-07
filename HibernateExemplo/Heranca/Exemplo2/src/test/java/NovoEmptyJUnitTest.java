@@ -2,6 +2,7 @@
 import br.heranca.model.Pessoa;
 import br.heranca.model.PessoaJuridica;
 import br.util.ConexaoFactory;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import org.junit.After;
@@ -37,6 +38,7 @@ public class NovoEmptyJUnitTest {
         {
             Pessoa pessoa = new Pessoa();
             pessoa.setNome("AAAAAAAAAA");
+            pessoa.setDataNascimento(new Date());
             em.getTransaction().begin();
             em.persist(pessoa);
             em.getTransaction().commit();
@@ -47,6 +49,7 @@ public class NovoEmptyJUnitTest {
             PessoaJuridica pessoaJuridica = new PessoaJuridica();
             pessoaJuridica.setNome("BBBBBBBBBBBBB");
             pessoaJuridica.setCnpj("23456789");
+            pessoaJuridica.setDataNascimento(new Date());
 
             em.getTransaction().begin();
             em.persist(pessoaJuridica);

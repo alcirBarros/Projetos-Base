@@ -1,6 +1,7 @@
 package br.heranca.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "pss_pessoa", schema = "hibernateDB")
-public class Pessoa implements Serializable {
+public class Pessoa extends AbstractEntidade implements Serializable {
 
     private static final long serialVersionUID = -9035921003832751188L;
 
@@ -26,6 +31,11 @@ public class Pessoa implements Serializable {
     @Column(name = "pss_nome", nullable = false)
     private String nome;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "pss_data_nascimento", nullable = false)
+    private Date dataNascimento;
+
+    @Override
     public Integer getId() {
         return id;
     }
@@ -42,6 +52,14 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -65,5 +83,5 @@ public class Pessoa implements Serializable {
             return false;
         }
         return true;
-    }    
+    }
 }

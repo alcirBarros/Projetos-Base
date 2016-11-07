@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 @Table(name = "psj_pessoa_juridica", schema = "hibernateDB")
 @PrimaryKeyJoinColumn(name = "pss_id", referencedColumnName = "pss_id")
 public class PessoaJuridica extends Pessoa {
