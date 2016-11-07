@@ -25,6 +25,7 @@
         <module>Postgres</module>
         <module>CascadeType</module>
         <module>ManyToMany</module>
+        <module>Envers</module>
     </modules>
     
     <dependencyManagement>

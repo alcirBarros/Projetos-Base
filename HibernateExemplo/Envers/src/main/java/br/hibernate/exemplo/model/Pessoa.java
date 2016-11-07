@@ -1,4 +1,4 @@
-package br.heranca.model;
+package br.hibernate.exemplo.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "pss_pessoa", schema = "hibernateDB")
 public class Pessoa implements Serializable {
