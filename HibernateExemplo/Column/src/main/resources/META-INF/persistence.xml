@@ -4,7 +4,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
             <!-- none: não fazer nada
             validate: valida o esquema do banco de dados, não faz alterações no banco de dados.
             update: atualizar o esquema.

@@ -51,10 +51,16 @@ public class NovoEmptyJUnitTest {
             columnType.setColumnTime(new Date());
             columnType.setColumnBigInteger(BigInteger.ONE);
             columnType.setColumnBigDecimal(BigDecimal.ONE);
-            
-            
+
             em.getTransaction().begin();
             em.persist(columnType);
+            em.getTransaction().commit();
+        }
+        {
+            ColumnType columnType = em.find(ColumnType.class, 1);
+            columnType.setColumnString("DDDDDDDDDDDDDDDD");
+            em.getTransaction().begin();
+            em.merge(columnType);
             em.getTransaction().commit();
         }
     }

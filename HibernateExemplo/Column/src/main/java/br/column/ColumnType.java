@@ -10,9 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
+import org.hibernate.envers.RevisionNumber;
+import org.hibernate.envers.RevisionTimestamp;
 
 @Entity
-@Table(name = "clm_column", catalog = "HibernateDB")
+@Table(name = "clm_column", catalog = "hibernateDB")
 public class ColumnType implements Serializable {
 
     private static final long serialVersionUID = -1126242111171968609L;
@@ -51,6 +55,10 @@ public class ColumnType implements Serializable {
 
     @Column(name = "clm_column_bigDecimal")
     private BigDecimal columnBigDecimal;
+
+    @Version
+    @Column(name = "clm_column_version")
+    private Long version;
 
     public Integer getId() {
         return id;
@@ -132,5 +140,4 @@ public class ColumnType implements Serializable {
         this.columnBigDecimal = columnBigDecimal;
     }
 
-    
 }
