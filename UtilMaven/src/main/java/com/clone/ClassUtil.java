@@ -10,7 +10,10 @@ public class ClassUtil {
     public static void main(String[] args) {
         try {
             Pessoa pessoa = new Pessoa();
-            getCampos(pessoa);
+            List headerCampos = getHeaderCampos(pessoa.getClass());
+            System.out.println(headerCampos);
+            List campos = getCampos(pessoa);
+            System.out.println(campos);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
