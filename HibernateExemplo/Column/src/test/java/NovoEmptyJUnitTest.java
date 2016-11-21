@@ -58,7 +58,7 @@ public class NovoEmptyJUnitTest {
         }
         {
             ColumnType columnType = em.find(ColumnType.class, 1);
-            columnType.setColumnString("DDDDDDDDDDDDDDDD");
+            columnType.setColumnString("FFFFFFFFFFFFFFFFFFf");
             em.getTransaction().begin();
             em.merge(columnType);
             em.getTransaction().commit();

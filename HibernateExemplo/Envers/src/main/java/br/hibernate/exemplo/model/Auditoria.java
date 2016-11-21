@@ -15,17 +15,17 @@ import org.hibernate.envers.Audited;
 @Entity
 @Audited
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "pss_pessoa", schema = "hibernateDB")
-public class Pessoa implements Serializable {
+@Table(name = "aud_auditoria", schema = "hibernateDB")
+public class Auditoria implements Serializable {
 
     private static final long serialVersionUID = -9035921003832751188L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pss_id", nullable = false)
+    @Column(name = "aud_id", nullable = false)
     private Integer id;
 
-    @Column(name = "pss_nome", nullable = false)
+    @Column(name = "aud_nome", nullable = false)
     private String nome;
 
     public Integer getId() {
@@ -62,7 +62,7 @@ public class Pessoa implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Pessoa other = (Pessoa) obj;
+        final Auditoria other = (Auditoria) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.hibernate.envers.RevisionNumber;
 import org.hibernate.envers.RevisionTimestamp;
 
@@ -56,9 +58,14 @@ public class ColumnType implements Serializable {
     @Column(name = "clm_column_bigDecimal")
     private BigDecimal columnBigDecimal;
 
-    @Version
-    @Column(name = "clm_column_version")
-    private Long version;
+//    @Version
+//    @Column(name = "clm_column_version", nullable = false)
+//    private Long version;
+//
+//    @Version
+//    @Column(name = "clm_column_version_date", nullable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date versionDate;
 
     public Integer getId() {
         return id;

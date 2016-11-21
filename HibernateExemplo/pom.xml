@@ -26,7 +26,8 @@
         <module>CascadeType</module>
         <module>ManyToMany</module>
         <module>Envers</module>
-    </modules>
+    <module>WebAplication</module>
+  </modules>
     
     <dependencyManagement>
         <dependencies>
