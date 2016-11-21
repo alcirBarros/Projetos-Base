@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
+import org.hibernate.annotations.Where;
 
 @Entity(name = "Pessoa_1")
 @Table(name = "pss_pessoa", catalog = "hibernateDB")
@@ -36,8 +37,9 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "sxo_id", referencedColumnName = "sxo_id")
     private Sexo sexo;
 
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, targetEntity = Contato.class)
+    @Where(clause = "cnt_ativo = 1")
     @Filter(name = "ativo", condition = "cnt_ativo = :status")
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, targetEntity = Contato.class)
     private List<Contato> contatoList = new ArrayList<>();
 
     public Pessoa() {

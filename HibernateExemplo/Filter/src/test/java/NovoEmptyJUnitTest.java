@@ -68,7 +68,7 @@ public class NovoEmptyJUnitTest {
         {
             // em.clear();
             session.clear();
-            List<Contato> contatoList = session.createQuery("select u from Contato u").list();
+            List<Contato> contatoList = session.createQuery("select u from Contato u ").list();
             System.out.println(contatoList);
         }
 

@@ -12,12 +12,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
+import org.hibernate.annotations.Where;
 
 
 @Entity
+@Where(clause = "cnt_ativo = 1")
 @Table(name = "cnt_contato", catalog = "hibernateDB")
-@Filter(name = "ativo", condition = "cnt.ativo = :status")
 @FilterDef(name = "ativo", parameters = {@ParamDef(name = "status", type = "boolean")})
+@Filter(name = "ativo", condition = "cnt_ativo = :status")
 public class Contato implements Serializable {
 
     private static final long serialVersionUID = 2819522057713894983L;
