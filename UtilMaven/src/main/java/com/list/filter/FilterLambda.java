@@ -20,13 +20,18 @@ import java.util.stream.Stream;
 public class FilterLambda {
 
     public static void main(String[] args) {
-//        List<Pessoa> pessoaList = null;
+
+        List<Pessoa> pessoaList = null;
 //        pessoaList = new ArrayList<>();
-//        pessoaList.add(new Pessoa(121, "Adriana", 12, Sexo.MALE));
+//        pessoaList.add(null);
 //        pessoaList.add(new Pessoa(221, "Julia", 19, Sexo.MALE));
 //        pessoaList.add(new Pessoa(131, "Pedro", 31, Sexo.FEMALE));
 //        pessoaList.add(new Pessoa(234, "Anita", 44, Sexo.MALE));
-
+        
+        List<Pessoa> collect = Optional.ofNullable(pessoaList).orElseGet(Collections::emptyList).stream().filter(Objects::nonNull).collect(Collectors.toList());
+        
+        System.out.println(collect);
+        
 //        List<Pessoa> olderUsers = pessoaList.stream().filter(Pessoa.isAdultMale()).collect(Collectors.toList());
 //        System.out.println(olderUsers);
 //
@@ -37,17 +42,15 @@ public class FilterLambda {
 //        System.out.println(pessoas);
 //        
 //       sorted(pessoaList);
-
-        String[] arrayStringIsNull1 = arrayStringIsNull(null);
-        String[] arrayStringIsNull2 = arrayStringIsNull(new String[]{"", null});
-        String[] arrayStringIsNull3 = arrayStringIsNull(new String[]{null, ""});
-        String[] arrayStringIsNull4 = arrayStringIsNull(new String[]{""});
-        String[] arrayStringIsNull5 = arrayStringIsNull(new String[]{null, null});
-        String[] arrayStringIsNull6 = arrayStringIsNull(new String[]{"", ""});
-        String[] arrayStringIsNull7 = arrayStringIsNull(new String[]{"", "1111"});
-        String[] arrayStringIsNull8 = arrayStringIsNull(new String[]{"4424", "1111"});
-        String[] arrayStringIsNull9 = arrayStringIsNull(new String[]{"gfdg", null});
-
+//        String[] arrayStringIsNull1 = arrayStringIsNull(null);
+//        String[] arrayStringIsNull2 = arrayStringIsNull(new String[]{"", null});
+//        String[] arrayStringIsNull3 = arrayStringIsNull(new String[]{null, ""});
+//        String[] arrayStringIsNull4 = arrayStringIsNull(new String[]{""});
+//        String[] arrayStringIsNull5 = arrayStringIsNull(new String[]{null, null});
+//        String[] arrayStringIsNull6 = arrayStringIsNull(new String[]{"", ""});
+//        String[] arrayStringIsNull7 = arrayStringIsNull(new String[]{"", "1111"});
+//        String[] arrayStringIsNull8 = arrayStringIsNull(new String[]{"4424", "1111"});
+//        String[] arrayStringIsNull9 = arrayStringIsNull(new String[]{"gfdg", null});
     }
 
     public static String[] arrayStringIsNull(String[] stringArray) {

@@ -54,7 +54,7 @@ public class BigDecimalTest {
 
     public static void main(String[] args) {
         BigDecimal bd = new BigDecimal(1.134);
-        BigDecimal valor = bd.setScale(1, RoundingMode.UP);
+        BigDecimal valor = bd.setScale(2, RoundingMode.HALF_UP);
         System.err.println(valor);
     }
 }

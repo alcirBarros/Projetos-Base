@@ -33,18 +33,18 @@ public class ListTest {
         Collections.sort(contaList);
         System.out.println("Ordenado pela classe: " + contaList);
 
-        Conta.Titular titular = new Conta.Titular();
+        Conta.titular titular = new Conta.titular();
         Collections.sort(contaList, titular);
         System.out.println("Ordenado pelo titular: " + contaList);
 
-        Conta.NumeroConta numeroConta = new Conta.NumeroConta();
+        Conta.numeroConta numeroConta = new Conta.numeroConta();
         Collections.sort(contaList, numeroConta);
         System.out.println("Ordenado por número da conta:" + contaList);
 
     }
 
     public static void main(String[] args) {
-        createSet();
+        createList();
     }
 
 }
@@ -88,14 +88,14 @@ class Conta implements Comparable<Conta> {
         return new StringBuilder().append("Conta:").append(titular).append(",").append(numeroConta).toString();
     }
 
-    public static class Titular implements Comparator<Conta> {
+    public static class titular implements Comparator<Conta> {
         @Override
         public int compare(Conta conta, Conta outraConta) {
             return conta.getTitular().compareTo(outraConta.getTitular());
         }
     }
     
-    public static class NumeroConta implements Comparator<Conta> {
+    public static class numeroConta implements Comparator<Conta> {
         @Override
         public int compare(Conta conta, Conta outraConta) {
             return conta.getNumeroConta().compareTo(outraConta.getNumeroConta());
