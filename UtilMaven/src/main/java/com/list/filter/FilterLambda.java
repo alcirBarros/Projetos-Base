@@ -1,5 +1,6 @@
 package com.list.filter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,18 +21,37 @@ import java.util.stream.Stream;
 public class FilterLambda {
 
     public static void main(String[] args) {
+        converterEntidadeArrayToIntegerArray();
+    }
 
-        List<Pessoa> pessoaList = null;
+    public static void converterEntidadeArrayToIntegerArray() {
+
+        Entidade[] pessoaArry = {null, new Pessoa(null, "Pedro", 31, Sexo.FEMALE), new Pessoa(131, "Pedro", 31, Sexo.FEMALE), new Pessoa(234, "Anita", 44, Sexo.MALE)};
+//      Entidade[] pessoaArry = {new Pessoa(23, "Pedro", 31, Sexo.FEMALE), new Pessoa(131, "Pedro", 31, Sexo.FEMALE), new Pessoa(234, "Anita", 44, Sexo.MALE)};
+//      Entidade[] pessoaArry = null;
+
+        Integer[] orElse = Optional.ofNullable(pessoaArry).flatMap(o -> Optional.of(Arrays.asList(o).stream().filter(Objects::nonNull).filter(y -> y.getId() != null).map(x -> x.getId()).toArray(Integer[]::new))).orElse(new Integer[]{});
+
+        System.out.println(orElse);
+    }
+
+    public static void converterEntidadeListToIntegerArray() {
+        Entidade[] pessoaArry = {null, new Pessoa(null, "Pedro", 31, Sexo.FEMALE), new Pessoa(131, "Pedro", 31, Sexo.FEMALE), new Pessoa(234, "Anita", 44, Sexo.MALE)};
+        List<Entidade> asList = Arrays.asList(pessoaArry);
+        Integer[] toArray = Optional.ofNullable(asList).orElseGet(Collections::emptyList).stream().filter(Objects::nonNull).filter(x -> x.getId() != null).map(x -> x.getId()).toArray(Integer[]::new);
+        System.out.println(toArray);
+    }
+
+    public static void listTest(String[] args) {
+        //        List<Pessoa> pessoaList = null;
 //        pessoaList = new ArrayList<>();
 //        pessoaList.add(null);
 //        pessoaList.add(new Pessoa(221, "Julia", 19, Sexo.MALE));
 //        pessoaList.add(new Pessoa(131, "Pedro", 31, Sexo.FEMALE));
 //        pessoaList.add(new Pessoa(234, "Anita", 44, Sexo.MALE));
-        
-        List<Pessoa> collect = Optional.ofNullable(pessoaList).orElseGet(Collections::emptyList).stream().filter(Objects::nonNull).collect(Collectors.toList());
-        
-        System.out.println(collect);
-        
+
+//        List<Pessoa> collect = Optional.ofNullable(pessoaList).orElseGet(Collections::emptyList).stream().filter(Objects::nonNull).collect(Collectors.toList());
+//        System.out.println(collect);
 //        List<Pessoa> olderUsers = pessoaList.stream().filter(Pessoa.isAdultMale()).collect(Collectors.toList());
 //        System.out.println(olderUsers);
 //

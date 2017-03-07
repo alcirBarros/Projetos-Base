@@ -2,7 +2,8 @@ package com.list.filter;
 
 import java.util.function.Predicate;
 
-public class Pessoa {
+public class Pessoa implements Entidade{
+    private static final long serialVersionUID = -8487274034927037828L;
 
     private Integer id;
     private String nome;
@@ -10,6 +11,13 @@ public class Pessoa {
     private Sexo sex;
 
     public Pessoa(Integer id, String nome, int indade, Sexo sex) {
+        this.id = id;
+        this.nome = nome;
+        this.indade = indade;
+        this.sex = sex;
+    }
+
+    public Pessoa(String nome, int indade, Sexo sex) {
         this.id = id;
         this.nome = nome;
         this.indade = indade;
@@ -25,6 +33,7 @@ public class Pessoa {
         return u -> u.getIndade() >= 18 && u.getSex().equals(Sexo.MALE);
     }
 
+    @Override
     public Integer getId() {
         return id;
     }
