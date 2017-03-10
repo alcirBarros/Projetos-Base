@@ -1,4 +1,4 @@
-package com.list.filter;
+package com.list.stream;
 
 import java.io.Serializable;
 import java.util.ArrayList;

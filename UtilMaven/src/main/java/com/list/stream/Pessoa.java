@@ -1,8 +1,9 @@
-package com.list.filter;
+package com.list.stream;
 
 import java.util.function.Predicate;
 
-public class Pessoa implements Entidade{
+public class Pessoa implements Entidade, Predicate<Pessoa> {
+
     private static final long serialVersionUID = -8487274034927037828L;
 
     private Integer id;
@@ -69,5 +70,10 @@ public class Pessoa implements Entidade{
     @Override
     public String toString() {
         return id + " " + nome + " " + indade + " " + sex;
+    }
+
+    @Override
+    public boolean test(Pessoa pessoa) {
+        return pessoa.getIndade() > 21 && pessoa.getSex() == Sexo.MALE;
     }
 }

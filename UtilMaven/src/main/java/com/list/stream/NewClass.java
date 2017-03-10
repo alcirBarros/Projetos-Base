@@ -1,4 +1,4 @@
-package com.list.filter;
+package com.list.stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,12 +12,20 @@ import java.util.stream.Collectors;
 public class NewClass {
 
     public static void main(String[] args) {
-        converterToArrayId();
+        converterIntegerArrayToIntegerListIsNotNull();
+    }
+
+    public static void converterIntegerArrayToIntegerListIsNotNull() {
+        Integer[] stringArray = {1, null, 3};
+
+        List<Integer> orElseGet = Optional.ofNullable(stringArray).flatMap(o -> Optional.of(Arrays.asList(o).stream().filter(Objects::nonNull).collect(Collectors.toList()))).orElseGet(Collections::emptyList);
+
+        System.out.println(orElseGet);
     }
 
     public static void converterToArrayId() {
         String[] stringArray = null;
-        
+
         List<String> asList = Arrays.asList(stringArray);
 
         List<Pessoa> pessoaList = new ArrayList<Pessoa>();
@@ -26,11 +34,10 @@ public class NewClass {
         pessoaList.add(new Pessoa(4, "C", 31, Sexo.FEMALE));
         pessoaList.add(new Pessoa(6, "D", 44, Sexo.MALE));
 
-
         Integer[] toArray = Optional.ofNullable(pessoaList).orElseGet(Collections::emptyList).stream().map(x -> x.getId()).filter(Objects::nonNull).toArray(Integer[]::new);
-        
+
         System.out.println(toArray);
-        
+
     }
 
     public static void list(String[] args) {

@@ -1,10 +1,10 @@
-package com.list.filter;
+package com.list.stream;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class FilterCollectionTest implements Predicate<Pessoa>{
+public class FilterCollectionTest {
 
     public static void main(String[] args) {
 
@@ -20,14 +20,22 @@ public class FilterCollectionTest implements Predicate<Pessoa>{
             }
         };
 
-        Collection<Pessoa> result = filter(pessoaList, validPersonPredicate);
+        Collection<Pessoa> result = (List) filter(pessoaList, validPersonPredicate);
 
-        System.out.println(result);
+        Predicate<Pessoa> predicateSexo = new Predicate<Pessoa>() {
+            public boolean apply(Pessoa person) {
+                return person.getSex() == Sexo.MALE;
+            }
+        };
+
+        Collection<Pessoa> result_ = (List) filter(pessoaList, predicateSexo);
+
+        System.out.println(result_);
 
     }
 
     public static <T> Collection<T> filter(Collection<T> col, Predicate<T> predicate) {
-        Collection<T> result = new ArrayList<T>();
+        Collection<T> result = new ArrayList();
         for (T element : col) {
             if (predicate.apply(element)) {
                 result.add(element);
@@ -35,17 +43,9 @@ public class FilterCollectionTest implements Predicate<Pessoa>{
         }
         return result;
     }
-
-    @Override
-    public boolean apply(Pessoa type) {
-        return type.getIndade() > 21 && type.getSex() == Sexo.MALE;
-    }
-
 }
 
 interface Predicate<T> {
 
     boolean apply(T type);
 }
-
-

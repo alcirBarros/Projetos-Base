@@ -10,6 +10,10 @@ import java.util.Set;
 
 public class ListTest {
 
+    public static void main(String[] args) {
+        createList();
+    }
+
     public static void createSet() {
         Set<Conta> contaList = new HashSet<>();
         contaList.add(new Conta("Luiz", 4566));
@@ -43,10 +47,6 @@ public class ListTest {
 
     }
 
-    public static void main(String[] args) {
-        createList();
-    }
-
 }
 
 class Conta implements Comparable<Conta> {
@@ -56,7 +56,7 @@ class Conta implements Comparable<Conta> {
 
     public Conta() {
     }
-   
+
     public Conta(String titular, Integer numeroConta) {
         this.titular = titular;
         this.numeroConta = numeroConta;
@@ -89,13 +89,15 @@ class Conta implements Comparable<Conta> {
     }
 
     public static class titular implements Comparator<Conta> {
+
         @Override
         public int compare(Conta conta, Conta outraConta) {
             return conta.getTitular().compareTo(outraConta.getTitular());
         }
     }
-    
+
     public static class numeroConta implements Comparator<Conta> {
+
         @Override
         public int compare(Conta conta, Conta outraConta) {
             return conta.getNumeroConta().compareTo(outraConta.getNumeroConta());
@@ -105,16 +107,12 @@ class Conta implements Comparable<Conta> {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.titular);
-        hash = 59 * hash + Objects.hashCode(this.numeroConta);
+        hash = 37 * hash + Objects.hashCode(this.titular);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -125,9 +123,7 @@ class Conta implements Comparable<Conta> {
         if (!Objects.equals(this.titular, other.titular)) {
             return false;
         }
-        if (!Objects.equals(this.numeroConta, other.numeroConta)) {
-            return false;
-        }
         return true;
     }
+
 }
