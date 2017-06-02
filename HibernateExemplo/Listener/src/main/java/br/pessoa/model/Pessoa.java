@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @EntityListeners(PessoaListener.class)
-@Table(name = "pss_pessoa", schema = "hibernateDB")
+@Table(name = "pss_pessoa")
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = -1565213111059708332L;

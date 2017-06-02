@@ -35,7 +35,7 @@ public class NovoEmptyJUnitTest {
 
     @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManager();
+        EntityManager em = ConexaoFactory.getEntityManagerMysql();
         {
             PessoaFisica pessoaFisica = new PessoaFisica();
             pessoaFisica.setNome("AAAAAAAAAA");

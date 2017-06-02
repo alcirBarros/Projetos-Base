@@ -33,7 +33,7 @@ public class NovoEmptyJUnitTest {
 
     @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManager();
+        EntityManager em = ConexaoFactory.getEntityManagerMysql();
 
         {
             Produto produto = new Produto();

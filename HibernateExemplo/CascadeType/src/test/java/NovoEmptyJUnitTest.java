@@ -22,7 +22,7 @@ public class NovoEmptyJUnitTest {
 
     @BeforeClass
     public static void setUpClass() {
-        em = ConexaoFactory.getEntityManager();
+        em = ConexaoFactory.getEntityManagerMysql();
     }
 
     @AfterClass
@@ -51,6 +51,8 @@ public class NovoEmptyJUnitTest {
 
         Produto produto = cadastrarProduto();
 
+        produto = em.find(Produto.class, produto.getId());
+
         MovimentacaoProduto movimentacaoProduto = new MovimentacaoProduto();
 
         ProdutoMovimentacao produtoMovimentacao = new ProdutoMovimentacao();
@@ -63,43 +65,52 @@ public class NovoEmptyJUnitTest {
         saldoEstoque.setValorUnitario(BigDecimal.ZERO);
         saldoEstoque.setDataValidade(new Date());
 
+        em.getTransaction().begin();
+        em.persist(saldoEstoque);
+        em.getTransaction().commit();
+        
+
+        produto = em.find(Produto.class, produto.getId());
+        saldoEstoque.setProduto(produto);
+        em.clear();
+        
+        produto.setDescricao("wertyui");
+
+
         produtoMovimentacao.setSaldoEstoque(saldoEstoque);
         movimentacaoProduto.getProdutoMovimentacaoList().add(produtoMovimentacao);
 
         em.getTransaction().begin();
-        em.persist(movimentacaoProduto);
-        em.getTransaction().commit();
-
-        em.clear();
-
-        movimentacaoProduto = em.find(MovimentacaoProduto.class, movimentacaoProduto.getId());
-        
-        em.clear();
-        
-        movimentacaoProduto = em.createQuery("select m from MovimentacaoProduto m where m.id = :movimentacaoProdutoId", MovimentacaoProduto.class)
-                .setParameter("movimentacaoProdutoId", movimentacaoProduto.getId())
-                .getSingleResult();
-        
-        em.clear();
-
-        movimentacaoProduto = (MovimentacaoProduto) em.createNativeQuery("select * from hibernateDB.mpd_movimentacao_produto where mpd_id = :movimentacaoProdutoId", MovimentacaoProduto.class)
-                .setParameter("movimentacaoProdutoId", movimentacaoProduto.getId())
-                .getSingleResult();
-        
-        
-//        movimentacaoProduto.getProdutoMovimentacaoList().remove(0).getSaldoEstoque().setQuantidade(BigDecimal.TEN);
-
-        em.getTransaction().begin();
-        em.persist(movimentacaoProduto);
-        em.getTransaction().commit();
-
-        em.clear();
-
-        movimentacaoProduto.getProdutoMovimentacaoList().remove(0);
-
-        em.getTransaction().begin();
         em.merge(movimentacaoProduto);
         em.getTransaction().commit();
+
+//        em.clear();
+//
+//        movimentacaoProduto = em.find(MovimentacaoProduto.class, movimentacaoProduto.getId());
+//
+//        em.clear();
+//
+//        movimentacaoProduto = em.createQuery("select m from MovimentacaoProduto m where m.id = :movimentacaoProdutoId", MovimentacaoProduto.class)
+//                .setParameter("movimentacaoProdutoId", movimentacaoProduto.getId())
+//                .getSingleResult();
+//
+//        em.clear();
+//
+//        movimentacaoProduto = (MovimentacaoProduto) em.createNativeQuery("select * from hibernateDB.mpd_movimentacao_produto where mpd_id = :movimentacaoProdutoId", MovimentacaoProduto.class)
+//                .setParameter("movimentacaoProdutoId", movimentacaoProduto.getId())
+//                .getSingleResult();
+//
+////        movimentacaoProduto.getProdutoMovimentacaoList().remove(0).getSaldoEstoque().setQuantidade(BigDecimal.TEN);
+//        em.getTransaction().begin();
+//        em.persist(movimentacaoProduto);
+//        em.getTransaction().commit();
+//
+//        em.clear();
+//
+////        movimentacaoProduto.getProdutoMovimentacaoList().remove(0);
+//        em.getTransaction().begin();
+//        em.merge(movimentacaoProduto);
+//        em.getTransaction().commit();
 
     }
 }

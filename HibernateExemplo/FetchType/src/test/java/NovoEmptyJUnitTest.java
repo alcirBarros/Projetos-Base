@@ -21,7 +21,7 @@ public class NovoEmptyJUnitTest {
 
     @BeforeClass
     public static void setUpClass() {
-        em = ConexaoFactory.getEntityManager();
+        em = ConexaoFactory.getEntityManagerMysql();
     }
 
     @AfterClass

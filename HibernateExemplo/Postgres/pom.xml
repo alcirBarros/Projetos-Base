@@ -26,11 +26,11 @@
         </dependency>
         
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
         </dependency>
-            
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

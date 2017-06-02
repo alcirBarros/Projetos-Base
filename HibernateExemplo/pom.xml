@@ -26,8 +26,10 @@
         <module>CascadeType</module>
         <module>ManyToMany</module>
         <module>Envers</module>
-    <module>WebAplication</module>
-  </modules>
+    	<module>WebAplication</module>
+<!--        <module>Facebook4j</module>-->
+        <module>SubSelect</module>
+    </modules>
     
     <dependencyManagement>
         <dependencies>

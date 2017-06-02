@@ -35,9 +35,9 @@ public class NovoEmptyJUnitTest1 {
     }
     
 
-    @Test
+//    @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManager();
+        EntityManager em = ConexaoFactory.getEntityManagerMysql();
 
         Produto produto = new Produto();
         produto.setDescricao("ÁCIDO ACETILSALICÍLICO");

@@ -1,9 +1,11 @@
 
 import br.column.ColumnType;
+import br.column.ColumnTypeViw;
 import br.util.ConexaoFactory;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -38,7 +40,7 @@ public class NovoEmptyJUnitTest {
 
     @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManager();
+        EntityManager em = ConexaoFactory.getEntityManagerMysql();
 
         {
             ColumnType columnType = new ColumnType();
@@ -58,10 +60,32 @@ public class NovoEmptyJUnitTest {
         }
         {
             ColumnType columnType = em.find(ColumnType.class, 1);
-            columnType.setColumnString("FFFFFFFFFFFFFFFFFFf");
+            columnType.setColumnString("FFFFFFFF55FFFF8888FFFFFf");
             em.getTransaction().begin();
             em.merge(columnType);
             em.getTransaction().commit();
         }
+
+        StringBuilder query = new StringBuilder();
+
+        
+        query.append("SELECT ");
+        query.append("    clm_id,  ");
+        query.append("    clm_column_string, "); 
+        query.append("    clm_column_integer, ");
+        query.append("    clm_column_long, ");
+        query.append("    clm_column_boolean, ");
+        query.append("    clm_column_dataTime, ");
+        query.append("    clm_column_date, ");
+        query.append("    clm_column_time, ");
+        query.append("    clm_column_bigInteger, ");
+        query.append("    clm_column_bigDecimal, ");
+        query.append("    clm_column_version ");
+        query.append("FROM ");
+        query.append("    hibernateDB.clm_column ");
+
+        List resultList = em.createNativeQuery(query.toString(), ColumnTypeViw.class).getResultList();
+        System.out.println(resultList);
+
     }
 }

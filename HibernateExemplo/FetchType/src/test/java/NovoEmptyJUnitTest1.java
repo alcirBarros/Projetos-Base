@@ -30,7 +30,7 @@ public class NovoEmptyJUnitTest1 {
 
     @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManager();
+        EntityManager em = ConexaoFactory.getEntityManagerMysql();
         System.out.println(em);
     }
 }

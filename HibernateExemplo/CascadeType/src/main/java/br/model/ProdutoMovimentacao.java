@@ -2,7 +2,6 @@ package br.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -27,7 +26,7 @@ public class ProdutoMovimentacao implements Serializable{
     @JoinColumn(name = "mpd_id", referencedColumnName = "mpd_id", foreignKey = @ForeignKey(name = "fk_pmv_mpd_id"), nullable = false)
     private MovimentacaoProduto movimentacaoProduto;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @ManyToOne
     @JoinColumn(name = "ses_id", referencedColumnName = "ses_id", foreignKey = @ForeignKey(name = "fk_pmv_ses_id"))
     private SaldoEstoque saldoEstoque;
     

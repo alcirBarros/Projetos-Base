@@ -29,9 +29,9 @@ public class NovoEmptyJUnitTest {
     public void tearDown() {
     }
 
-    @Test
+//    @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManager();
+        EntityManager em = ConexaoFactory.getEntityManagerMysql();
 
         {
             Pessoa pessoa = new Pessoa();

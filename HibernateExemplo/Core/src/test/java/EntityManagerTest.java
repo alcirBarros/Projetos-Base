@@ -33,7 +33,7 @@ public class EntityManagerTest {
 
     @Test
     public void hello() {
-        EntityManager entityManager = ConexaoFactory.getEntityManager();
+        EntityManager entityManager = ConexaoFactory.getEntityManagerMysql();
         System.out.println(entityManager);
         System.out.println("TESTE....");
     }
